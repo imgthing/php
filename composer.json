@@ -1,0 +1,32 @@
+{
+    "name": "imgthing/imgthing",
+    "description": "",
+    "keywords": [
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Sedinkin",
+            "email": "a@aw.wtf"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "ext-json": "*",
+        "ext-sodium": "*"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^12.3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "ImageProxy\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ImageProxy\\Test\\": "tests"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+root = true
+
+[*.{yml,json,php}]
+indent_size = 4
