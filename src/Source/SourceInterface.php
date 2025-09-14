@@ -1,8 +1,8 @@
 <?php
 
-namespace ImageProxy\Source;
+namespace Imgthing\Source;
 
-use ImageProxy\Extension;
+use Imgthing\Extension;
 
 interface SourceInterface extends \Stringable
 {

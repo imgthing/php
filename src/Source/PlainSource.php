@@ -1,6 +1,6 @@
 <?php
 
-namespace ImageProxy\Source;
+namespace Imgthing\Source;
 
 class PlainSource extends AbstractSource
 {

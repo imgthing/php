@@ -1,5 +1,5 @@
 {
-    "name": "imgthing/imgthing",
+    "name": "imgthing/php",
     "description": "",
     "keywords": [
     ],
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ImageProxy\\": "src"
+            "Imgthing\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ImageProxy\\Test\\": "tests"
+            "Imgthing\\Test\\": "tests"
         }
     }
 }

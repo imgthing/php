@@ -1,6 +1,6 @@
 <?php
 
-namespace ImageProxy;
+namespace Imgthing;
 
 enum Extension: string
 {

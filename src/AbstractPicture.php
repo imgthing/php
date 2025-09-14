@@ -1,8 +1,8 @@
 <?php
 
-namespace ImageProxy;
+namespace Imgthing;
 
-use ImageProxy\Source\SourceInterface;
+use Imgthing\Source\SourceInterface;
 
 abstract class AbstractPicture implements PictureInterface
 {

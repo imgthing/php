@@ -1,6 +1,6 @@
 <?php
 
-namespace ImageProxy;
+namespace Imgthing;
 
 class Picture extends AbstractPicture
 {
