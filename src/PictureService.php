@@ -10,7 +10,7 @@ class PictureService
         protected Signer $signer,
         protected string $httpHost,
         protected string $basePath = '/',
-        protected bool $domainAwareSignature = false,
+        protected bool $hostAwareSignature = false,
     ) {
         $this->host = (string)parse_url($this->httpHost, PHP_URL_HOST)
             ?: throw new \RuntimeException('Invalid host');
@@ -27,8 +27,8 @@ class PictureService
         while ($generator->valid()) {
             $unsigned = $generator->current();
 
-            if ($this->domainAwareSignature) {
-                $unsigned = $this->host + $unsigned;
+            if ($this->hostAwareSignature) {
+                $unsigned = $this->host . $unsigned;
             }
 
             $signature = $this->signer->sign($unsigned);
@@ -44,7 +44,7 @@ class PictureService
 
     public function getSignedUrl(string $unsigned): string
     {
-        if ($this->domainAwareSignature) {
+        if ($this->hostAwareSignature) {
             $unsigned = $this->host . $unsigned;
         }
 
