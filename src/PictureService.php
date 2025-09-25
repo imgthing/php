@@ -20,7 +20,7 @@ class PictureService
      * @param null|list<int> $densities
      * @param null|list<int> $extensions
      */
-    public function describePicture(PictureInterface $picture, array $densities = [1], ?array $extensions = null): array
+    public function describe(PictureInterface $picture, array $densities = [1], ?array $extensions = null): array
     {
         $generator = $picture->generator($densities, $extensions);
 
@@ -28,12 +28,12 @@ class PictureService
             $unsigned = $generator->current();
 
             if ($this->hostAwareSignature) {
-                $unsigned = $this->host . $unsigned;
+                $signature = $this->signer->sign($this->host . $unsigned);
+            } else {
+                $signature = $this->signer->sign($unsigned);
             }
 
-            $signature = $this->signer->sign($unsigned);
-
-            $signed = sprintf('/%s%s', $signature, $unsigned);
+            $signed = sprintf('%s%s', $signature, $unsigned);
             $formatted = sprintf('%s%s%s', $this->httpHost, $this->basePath, $signed);
 
             $generator->send($formatted);
