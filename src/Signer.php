@@ -6,10 +6,16 @@ use SensitiveParameter;
 
 final readonly class Signer
 {
+    protected string $salt;
+    protected string $key;
+
     public function __construct(
-        #[SensitiveParameter] protected string $salt,
-        #[SensitiveParameter] protected string $key,
-    ) {}
+        #[SensitiveParameter] string $salt,
+        #[SensitiveParameter] string $key,
+    ) {
+        $this->key = pack("H*", $key);
+        $this->salt = pack("H*", $salt);
+    }
 
     public function sign(string $string): string
     {
